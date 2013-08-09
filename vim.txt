@@ -1,0 +1,40 @@
+:help cd                        get help on the `cd` command
+%s/\<bar\>/bar/g                replace whole word bar with bar: 
+move to next word               in normal mode: w, in insert mode shift right-arrow
+:set shiftwidth=4               # of cols for reindent operations (<< and >>) and automatic C-style indentation
+:set tabstop=4                  Set number of spaces for tab:
+:set expandtab                  Insert spaces instead of tab:
+:retab                          Change all tabs to adhere to current settings of tab
+:source $MYVIMRC                reload ~/.vimrc
+:echo $MYVIMRC                  show location of .vimrc
+:ver                            show current version of vim
+:set t_Co:2                     set terminal colors to 2
+"Kyy                            append to register k
+"kp                             paste from register k
+:reg                            view what is in the registers
+:echo $ <control-D>             displays all environment variables
+:vimgrep /lol/ %                searches in the file in current buffer and stores result to quickfix list
+:copen                          open quickfix list
+:set nohlsearch                 disable search highlighting
+:set <command>!                 toggle the state set by some command
+:nnoremap <F3> :set pwd <CR>    remap F3 key to pwd command
+:bufdo e                        reload current buffer
+qq <esc>q                       start and stop recording
+:set ruler                      show col + row number is status line
+:%s/;/\r/g                      replace each ; with a new line
+b w                             previous token, next token
+ge e                            go to end of previous/next token
+{ }                             go to beginning of previous or next paragraph
+rg r5                           replace character under cursor with `g` or `5`
+R                               replace characters starting at the cursor
+cc or S                         change current line
+%!xxd %!xxd -r                  enter and exit hex edit mode
+
+To indent a block of text inside curly braces {}:
+    Put the cursor on the curly brace and type >%
+
+Indent a file accordinging to auto-indentation rules of its type
+    :filetype indent on
+    :set filetype=html 
+    :set smartindent   
+    then select the text and hit '=' or 'gg =G'

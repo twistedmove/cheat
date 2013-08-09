@@ -1,0 +1,32 @@
+CHUNK OPTIONS
+- Set for each chunk in the chunk header
+	<<chunk1, cache=TRUE, size='tiny'>>=
+- Set for all chunks in a document in the first chunk using 'opt_chunk$set()'
+	<<set-options, include=FALSE, cache=FALSE>>=
+	opts_chunk$set(dev='tikz', fig.align='center', cache=TRUE, message=FALSE, background='white')
+- R options could also be adjusted by simply using 'options()' in one of the chunks
+	<<set-options, include=FALSE>>=
+	options(replace.assign=TRUE,width=85)
+- Built-in Knitr options:
+	eval: whether to evaluate code (or even individual expressions)
+	echo: whether to include R source code
+	inlcude: whether to include the chunk in final document; still evaluated
+	size: text size of chunk text. standard LaTeX szes "normalsize", "tiny",
+	"scriptsize", "footnotesize", "small", "large", "Large", "LARGE", "huge",
+	"Huge"
+	cache: whether to cache the results for speedier compilation
+	background: char or numeric
+
+PACKAGE OPTIONS
+- can be set with 'opts_knit$set(progress = TRUE, verbose = TRUE)'
+
+HOOKS
+- code to run before/after chunk evaluation and to tweak output of knitr
+- http://yihui.name/knitr/hooks
+
+- http://biostat.mc.vanderbilt.edu/wiki/Main/KnitrHowto
+- you can compile latex from withing R with 'system("pdflatex filename")'
+- global options set in an R chunk will remain valid until the end/reset
+
+TODO:
+- compile .Rnw from within Vim	

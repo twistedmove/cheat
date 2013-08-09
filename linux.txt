@@ -1,0 +1,56 @@
+xxd -b text.txt                 show contents of text.txt in binary format
+iftop -i wlan0                  monitor bandwidth in real time
+nethongs wlan0                  monitor bandwidth in real time per process
+uname -r                        print kernel release info
+ps -e | wc -l                   get total number of running processes
+tar -cf ar.tar foo bar          create an archive with files foo and bar
+tar -tvf archive.tar            list all files in an archive verbosely
+tar -xf archive.tar             extract all files
+rename -n 's/\sfoo//' *.csv     replace " foo" with "" from names of csv files. -n flag for no action
+~/.bashrc                       executes when non-login shell opens. On ubuntu, in etc/bash.bashrc
+ll='ls -l'                      creates an alias for the command ls -l. can be put in .bashrc
+etc/environment                 contains a list of persistent paths
+which                           returns the pathnames of the files
+file                            determine file type. can detect symbolic links
+ln -s ~/1.txt ./logs.txt        create symbolic link logs file and point it to real file
+wget www.me.com/f.zip           download file
+rm `ls -t | head -1`            remove last modifed file
+grep -ri "test" fileordir       search dir rec. for string test, show file names in the results
+sed -i 's/u/z/g' path/*.c       replace u with z in all .c files in path/ and save (-i)
+sed -i 's/.\{4\}/& /' *.c       in all .c files currdir, after first four characters, insert space; save
+diff -qsw one.c two.c           compare files, ignore whitespace chars
+echo $SHELL                     shows which shell you are using.
+apt-cache search aPack          search for package 'aPack' in the repos
+find ./ -name "test"            find files in currdir, recursively, that contain 'test' in filename
+crontab -u john -l              view crontab entry for a specific user
+free -m                         view available memory in megs or -g for gigs
+mkdir /z; mount /dev/sdb1 /z    mount a file system to folder /z
+chmod ug+rwx file.txt           give user and group write permission
+ifconfig -a                     view all network interfaces with statuses
+locate somefile.txt             quickly find file somefile.txt
+echo $PATH                      print environment variable PATH
+env                             prints all current environment variables
+lshw                            list hardware
+sudo apt-get remove <pckg>      removes package, leaves conffiles
+sudo apt-get purge <pckg>       removes everything, including conffiles 
+add persistent path             add it in etc/environment file
+su dima                         change user to dima
+
+############# LINUX DIRECTORY ARCHITECTURE #######################################
+/bin            common binaries for all: ls, ps, ping, grep
+/sbin           binaries for sysadmin, maintenance: iptables, rebood, fdisk
+/etc            config files for programs, start up and shut down scripts
+/dev            device files, like terminal device, usb, or any device attached to system
+/proc           virtual file system that contains info about processes. e.g. /proc/uptime, /proc/{pid}
+/var            files that are expected to grow, system logs, packages, databases, emails, print queues
+/tmp            temp files created by system and user. deleted on reboot
+/usr            bins, libs, docs, source for second level programs.
+/usr/local      containts progs built form source.
+/home           home directories of users
+/boot           boot loader related files. 
+/lib            files that support binaries in /bin and /sbin. Files end in .ld or .so
+/opt            add-on applications from individual vendors
+/mnt            temp dir where sysadmins can mount filesystems
+/media          temp dir for removable devices
+/srv            contains server specific services related data
+######################################################################################

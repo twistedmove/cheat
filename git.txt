@@ -1,0 +1,52 @@
+git remote show origin                  show info of remote with the alias `origin`
+git remote                              lists remote aliases
+git remote -v                           lists remote aliases with the url
+git remote add origin <url of .git>     add remote with the name origin
+stage file                              adding file to the list of file to be commited
+git add <file>                          track <file> if untracked, otherwise stage <file> for commitment
+git add .                               adds all files
+git commit -m "commit message"          commit staged files
+git rm -r --cached ./                   untrack all files in the dir
+git rm --cached file.txt                remove file.txt from stage, but leave locally
+git status                              show which files will be commited
+git push origin master [--force]        send the commits to remote, force if necessary
+git config --global user.name           set user's name
+git config --global user.email "m@e.ch  set email
+git init                                initialize a repo
+git status                              shows the status obv.
+git add -u                              ensure that also delete files will be gone from remote/repo
+git clone https://...repo.git           clone git repo (files + .git/ + configuration) and start working
+git pull origin                         pull changes, made to origin after cloning, and merge 
+
+CREATE A GITHUB REPO AND CLONE TO LOCAL MACHINE
+- create a repo 'some-project-name' on Github and initialize it (to use clone later on)
+- in terminal 'git clone https://github/me/some-project-name
+- edit the README.md file 
+- git commit -m "first commit"
+- git push origin master
+
+
+UNTRACKED       TRACKED-UNMODIFIED      TRACKED-MODIFIED        TRACKED-STAGED
+f.txt
+g.txt
+
+# execute git add f.txt:
+g.txt                                                           f.txt
+
+# execute git commit -m "test":
+g.txt           f.txt
+
+# edit f.txt, then run git status:
+g.txt                                   f.txt
+
+#run git add f.txt
+g.txt                                                           f.txt
+
+# run git commit -m "update"
+g.txt           f.txt
+
+SCENARIO 1
+- I am on a brand new pc and want to work on my repo https://github.com/Dmitrii-I/somerepo.git
+- simply run `git clone https://github.com/Dmitrii-I/somerepo.git`
+- this above also sets up remote with alias `origin` pointing to https://github.com/Dmitrii-I/somerepo.git
+

@@ -1,0 +1,89 @@
+- \usepackage[margin=0.5in]{geometry}  
+- \usepackage{parskip} skip the fucking paragraph indentations
+- http://www.codecogs.com/latex/eqneditor.php
+
+Tables
+- in R, package xtables, generates latex tables 'xtable(head(iris))'
+	-also remember to set the chunk option results='asis' or results='tex'  
+-http://tex.stackexchange.com/questions/25575/how-can-i-use-a-table-generated-by-r-in-latex
+ 
+_______________________________________________________________________________ 
+
+Error 'File Sweave.sty' not found
+- this file is located in /usr/share/R/share/texmf/tex/latex/Sweave.sty
+- Solutions:
+	- put in same dir as .Rnw
+	- put \include{Sweave} in .Rnw (does not work)
+	- Run R CMD Sweave (sets up environment for Sweave) (how, lol?)
+	- Add Sweave.sty or the folder it is in, to the search path of latex:
+		- put in file return by kpsewhich texmf.cnf 
+		(/usr/local/texlive/2012/texmf.cnf) the lines
+		TEXMFR = /usr/share/R/share/texmf
+		TEXMF = {$TEXMFCONFIG, $TEXMFVAR, ..., $TEXMFR}
+	- Add to the main latex tree (where exactly?) 
+		- note that additions to the main tree of latex require
+		updates to the ls-R database with 'mktexlsr' command
+		- the usual place for local additions is ~/texmf/tex/latex
+			- you need to maintain LaTeX TDS
+		- never place anything to ../texlive/<year> because 
+		updates may overwrite it.
+		- system-wide addition can be achieved by putting files in
+		/usr/local/texlive/texmf-local (then run 'sudo mktexlsr')
+			- I did this, but mktexlsr did not seem to update
+			/usr/local/texlive/texmf-local
+		- useful command: 'kpsewhich -var-value [TEXMFLOCAL, TEXMF, TEXMFHOME]'
+		- http://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-files-to-make-them-available-to-all-my-tex-files
+
+_______________________________________________________________________________
+
+Error "I could not locate the file with any of these extensions: .eps,.ps,.eps.gz,.ps.gz,.eps.Z"
+- this occurs because Sweave makes the plot a .pdf file, while pdftex
+looks for above extensions.
+- Solutions:
+	(1) You could include this in the pre-amble:
+	\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg,.mps}
+	(2) put in the pre-amble '\SweaveOpts{eps=TRUE, pdf=FALSE}'
+	(3) in .Rnw Sweave file put <<fig=TRUE, eps=TRUE>>=
+	(4) Unfortunately, from 
+	http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/graphics/graphics.pdf
+	"Each use of \DeclareGraphicsExtensions overwrites all previous 
+	definitions. It is not possible to add an extension to an existing list."
+
+_______________________________________________________________________________
+
+LaTeX and math formulas
+- for simple formulas, standard LaTeX suffices
+- for complicated formulas use package 'amsmath' or even better 'mathtools'
+- because LaTeX formats equations differently, you need to start a new enviroment
+- there are two types of equations: inline and displayed
+- to start inline equation use '$ ... $' or '\( ... \)'
+- displayed unnumbered equations: '\[ ... \]' or '\begin{equation*} ... \end{equation}'
+- displayed numbered equations: '\begin{equation} ... \end{equation}'
+- ftp://ftp.ams.org/pub/tex/doc/amsmath/short-math-guide.pdf
+- http://en.wikibooks.org/wiki/LaTeX/Mathematics
+
+_______________________________________________________________________________
+
+SWEAVE
+- you cannot have single quotation marks in \begin{Soutput}
+
+_______________________________________________________________________________
+
+TABLES
+- a very simple table:
+		\begin{center}
+		  \begin{tabular}{ l | c || r }
+		    \hline
+		    1 & 2 & 3 \\ \hline
+		    4 & 5 & 6 \\ \hline
+		    7 & 8 & 9 \\
+		    \hline
+		  \end{tabular}
+		\end{center}
+
+system("pdflatex filename") 		run pdflatex command from R
+
+_______________________________________________________________________________
+
+HOW TO CHECK IF A PACKAGE HAS BEEN INSTALLED?
+Assuming you know the name of the package: kpsewhich <package>

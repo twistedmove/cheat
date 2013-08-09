@@ -1,0 +1,47 @@
+FUNCTION                            RETURNS
+search()                            list of attached packages
+parent.env(.GlobalEnv)              parent environment
+environment(plot)                   environment associated with plot
+environment()                       current evaluation environment
+objects("package:grDevice")         vector of all names defined in the environment package:grDevice
+objects()                           all defined names in global environment
+new.env                             new environment object
+remove("mean")                      removes object mean from current environment (also other)
+sys.call                            language object containing current function call
+sys.frame                           calling environment
+sys.nframe                          number of the current frame (position on call stack)
+.Machine$sizeof.pointer             4 if R version is 32-bit, 8 if 64-bit
+gc()                                stats of free memory (and collects garbage immediately)
+object.size(obj)                    approximate size of obj in bytes
+memory.profile()                    information on usage of memory by object type
+memory.size(max=TRUE)               max memory used so far by R
+mem.limits(nsize=NA, vsize=NA)      set memory limit size
+options(digits.secs=6)              show seconds in decimals with 6 digits
+getOption("digits.secs")            show the option digits.secs
+options(widht=100)                  set R's output width at 100 columns
+rm(list = ls())                     clear workspace
+attach()                            attaches set of objects to search path
+R.home()                            return the R home dir
+RSiteSearch("test)                  Search R site for "test"
+rm(list=ls())                       remove almost all objects
+parent.env(.GlobalEnv)              returns parent environment
+environment(plot)                   returns environment associated with plot
+environment()                       returns current evaluation environment
+objects(env)                        returns a vector of all names definedin the environment env
+new.env                             returns a new environment object
+remove("mean")                      removes object mean from current environment (also other)
+sys.call                            returns a language object containing current function call
+sys.frame                           returns the calling environment
+sys.nframe                          returns the number of the current frame (position on call stack)
+Sys.getenv("R_PROFILE_USER")        get the environment variable R_PROFILE_USER
+Sys.setenv(R_HOME="~/R")            set R_HOME environment variable (valid only for current session. To make
+                                    persistent, adjust R_HOME/etc/Renviron file
+fix(some.data.set)                  open GUI editor, edit some.data.set, result saved automatically
+getwd()                             get working dir
+library(help="gtools")              get help for package gtools
+help(package = "gtools")            get help for package gtools
+ls(package:xtable)                  show what is in package xtable
+system("pdflatex filename")         run pdflatex command from R
+data()                              list available datasets
+search()                            shows loaded packages
+

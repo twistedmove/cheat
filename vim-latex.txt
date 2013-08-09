@@ -1,0 +1,8 @@
+By default vim-latex '\ll' compiles to dvi. How to change to compile to pdf?
+- http://vim-latex.sourceforge.net/documentation/latex-suite/customizing-compiling.html
+- 
+
+
+Where to customize vim-latex and its global variables?
+- http://vim-latex.sourceforge.net/documentation/latex-suite/customizing-latex-suite.html
+- 

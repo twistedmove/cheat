@@ -1,0 +1,15 @@
+HOW TO CACHE CODE IN SWEAVE
+	Prepare this test.rnw file:
+	
+	\documentclass{article}
+	<<cachedCode,cache=TRUE>>=
+	#this Sweave block will be cached
+	@
+	\begin{document}
+	\end{document}
+	
+	Then you would run this using:
+	
+	require(cacheSweave)
+	Sweave('test.rnw', driver=cacheSweaveDriver)
+
