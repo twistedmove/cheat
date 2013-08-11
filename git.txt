@@ -46,7 +46,13 @@ g.txt                                                           f.txt
 g.txt           f.txt
 
 SCENARIO 1
-- I am on a brand new pc and want to work on my repo https://github.com/Dmitrii-I/somerepo.git
+- I am on a brand new computer and want to work on a repo https://github.com/Dmitrii-I/somerepo.git
 - simply run `git clone https://github.com/Dmitrii-I/somerepo.git`
 - this above also sets up remote with alias `origin` pointing to https://github.com/Dmitrii-I/somerepo.git
 
+SCENARIO 2
+- I am on PC 1 whwere I worked before on a repo
+- Last commits to remote were made from PC 2  
+- How can I update my local repo on PC 1 to reflect the remote repo?
+- run 'git pull origin master' and then 'git fetch'
+- git fetch is needed to avoid false message 'you commit is ahead of origin/master by x...'
