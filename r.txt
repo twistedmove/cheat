@@ -1,4 +1,16 @@
-FUNCTION                            RETURNS
+                   PACKAGE:grDevices
+dev.cur()                           prints name of current device
+dev.list()                          shows open devices, excluding null device
+X11.options()                       read and set the X11 device options
+dev.off()                           close current device
+x11()                               opens new X11cairo device
+graphics.off()                      shuts down all open graphics devices
+
+                    PACKAGE:graphics
+par()                               set or query graphical parameters
+
+
+
 search()                            list of attached packages
 parent.env(.GlobalEnv)              parent environment
 environment(plot)                   environment associated with plot
