@@ -5,12 +5,19 @@ X11.options()                       read and set the X11 device options
 dev.off()                           close current device
 x11()                               opens new X11cairo device
 graphics.off()                      shuts down all open graphics devices
+dev.copy                            copy and switch to new device
+dev.print                           copy to and shut down new device
+xy.coords                           obtain x and y coords for plotting, from some object like df or vector
+demo(plotmath)                      mathematical annotation in R
 
                     PACKAGE:graphics
-par()                               set or query graphical parameters
+par                                 set or query graphical parameters
+image                               creates grid of colored or gray rectangels, with colors in 'z'
+curve                               draw a curve from a mathematical function
+plot.xy                             basic interland plot function for points and lines
 
 
-
+args                                displays argument names and defaults of a function
 search()                            list of attached packages
 parent.env(.GlobalEnv)              parent environment
 environment(plot)                   environment associated with plot

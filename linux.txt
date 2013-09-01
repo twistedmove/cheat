@@ -1,40 +1,41 @@
-xxd -b text.txt                 show contents of text.txt in binary format
+add persistent path             add it in etc/environment file
+apt-cache search aPack          search for package 'aPack' in the repos
+chmod ug+rwx file.txt           give user and group write permission
+crontab -u john -l              view crontab entry for a specific user
+diff -qsw one.c two.c           compare files, ignore whitespace chars
+echo $PATH                      print environment variable PATH
+echo $SHELL                     shows which shell you are using.
+env                             prints all current environment variables
+etc/environment                 contains a list of persistent paths
+file                            determine file type. can detect symbolic links
+find ./ -name "test"            find files named 'test' in dir ./ 
+find ./ -regex '.*lol.*'        in dir ./ finds all files with string 'lol' in the file path
+free -m                         view available memory in megs or -g for gigs
+grep -ri "test" fileordir       search dir rec. for string test, show file names in the results
+ifconfig -a                     view all network interfaces with statuses
 iftop -i wlan0                  monitor bandwidth in real time
+ll='ls -l'                      creates an alias for the command ls -l. can be put in .bashrc
+ln -s ~/1.txt ./logs.txt        create symbolic link logs file and point it to real file
+locate somefile.txt             quickly find file somefile.txt
+lshw                            list hardware
+mkdir /z; mount /dev/sdb1 /z    mount a file system to folder /z
 nethongs wlan0                  monitor bandwidth in real time per process
-uname -r                        print kernel release info
 ps -e | wc -l                   get total number of running processes
+rename -n 's/\sfoo//' *.csv     replace " foo" with "" from names of csv files. -n flag for no action
+rm `ls -t | head -1`            remove last modifed file
+sed -i 's/.\{4\}/& /' *.c       in all .c files currdir, after first four characters, insert space; save
+sed -i 's/u/z/g' path/*.c       replace u with z in all .c files in path/ and save (-i)
+su dima                         change user to dima
+sudo apt-get purge <pckg>       removes everything, including conffiles 
+sudo apt-get remove <pckg>      removes package, leaves conffiles
 tar -cf ar.tar foo bar          create an archive with files foo and bar
 tar -tvf archive.tar            list all files in an archive verbosely
 tar -xf archive.tar             extract all files
-rename -n 's/\sfoo//' *.csv     replace " foo" with "" from names of csv files. -n flag for no action
-~/.bashrc                       executes when non-login shell opens. On ubuntu, in etc/bash.bashrc
-ll='ls -l'                      creates an alias for the command ls -l. can be put in .bashrc
-etc/environment                 contains a list of persistent paths
-which                           returns the pathnames of the files
-file                            determine file type. can detect symbolic links
-ln -s ~/1.txt ./logs.txt        create symbolic link logs file and point it to real file
+uname -r                        print kernel release info
 wget www.me.com/f.zip           download file
-rm `ls -t | head -1`            remove last modifed file
-grep -ri "test" fileordir       search dir rec. for string test, show file names in the results
-sed -i 's/u/z/g' path/*.c       replace u with z in all .c files in path/ and save (-i)
-sed -i 's/.\{4\}/& /' *.c       in all .c files currdir, after first four characters, insert space; save
-diff -qsw one.c two.c           compare files, ignore whitespace chars
-echo $SHELL                     shows which shell you are using.
-apt-cache search aPack          search for package 'aPack' in the repos
-find ./ -name "test"            find files in currdir, recursively, that contain 'test' in filename
-crontab -u john -l              view crontab entry for a specific user
-free -m                         view available memory in megs or -g for gigs
-mkdir /z; mount /dev/sdb1 /z    mount a file system to folder /z
-chmod ug+rwx file.txt           give user and group write permission
-ifconfig -a                     view all network interfaces with statuses
-locate somefile.txt             quickly find file somefile.txt
-echo $PATH                      print environment variable PATH
-env                             prints all current environment variables
-lshw                            list hardware
-sudo apt-get remove <pckg>      removes package, leaves conffiles
-sudo apt-get purge <pckg>       removes everything, including conffiles 
-add persistent path             add it in etc/environment file
-su dima                         change user to dima
+which                           returns the pathnames of the files
+xxd -b text.txt                 show contents of text.txt in binary format
+~/.bashrc                       executes when non-login shell opens. On ubuntu, in etc/bash.bashrc
 
 ############# LINUX DIRECTORY ARCHITECTURE #######################################
 /bin            common binaries for all: ls, ps, ping, grep
