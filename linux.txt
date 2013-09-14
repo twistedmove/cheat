@@ -1,3 +1,4 @@
+ps -ef | grep -e foo -e UID     prints all processes foo but also the header since it contains UID
 add persistent path             add it in etc/environment file
 apt-cache search aPack          search for package 'aPack' in the repos
 chmod ug+rwx file.txt           give user and group write permission
@@ -15,7 +16,7 @@ grep -ri "test" fileordir       search dir rec. for string test, show file names
 ifconfig -a                     view all network interfaces with statuses
 iftop -i wlan0                  monitor bandwidth in real time
 ll='ls -l'                      creates an alias for the command ls -l. can be put in .bashrc
-ln -s ~/1.txt ./logs.txt        create symbolic link logs file and point it to real file
+ln -s ~/1.txt ./logs.txt        create symbolic link file logs.txt that point it to real file 1.txt
 locate somefile.txt             quickly find file somefile.txt
 lshw                            list hardware
 mkdir /z; mount /dev/sdb1 /z    mount a file system to folder /z

@@ -1,0 +1,2 @@
+whatis postgres                         PostgreSQL database server
+ps -ef | grep -e postgres -e UID        show all postgres processes and header
