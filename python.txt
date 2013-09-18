@@ -4,4 +4,4 @@ x.__class__.__name__            class of x returned as string
 range(x, y)                     produce a list from and including x to an including y-1
 os.path.isfile("d/1.c")         checks if file 1.c exists in directory d in the current dir
 time.sleep(x)                   pause execution for x seconds
-
+help("string")                  get help on class `sring`

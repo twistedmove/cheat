@@ -1,28 +1,28 @@
 DEFINITIONS
-HEAD                                    pointer to the current branch. cat .git/HEAD shows where it points to
+HEAD                                    pointer to the last commit. cat .git/HEAD shows where it points to
 index                                   aka staging area. contains files to be commited, added with git add 
 
 COMMANDS
-git remote show origin                  show info of remote with the alias `origin`
+git --abbrev-commit --pretty=online     shows short commit numbers; one line per commit
+git add -u                              update. ensures that also deleted files will be gone from remote/repo
+git add <file>                          add untracked to tracked work. tree or add tracked work. tree to index 
+git clean [-f, -n]                      -f delete untracked files. -n shows what will be deleted
+git clone https://...repo.git           clone git repo (files + .git/ + configuration) and start working
+git commit -m "commit message"          commit staged files
+git config --global user.email "m@e.ch  set email
+git config --global user.name           set user's name
+git init                                initialize a repo
+git pull origin                         pull changes, made to origin after cloning, and merge 
+git push origin master [--force]        send the commits to remote, force if necessary
 git remote                              lists remote aliases
 git remote -v                           lists remote aliases with the url
 git remote add origin <url of .git>     add remote with the name origin
-git add <file>                          add untracked to tracked work. tree or add tracked work. tree to index 
-git commit -m "commit message"          commit staged files
-git rm -r --cached ./                   untrack all files in the dir
-git rm --cached file.txt                remove file.txt from stage, but leave locally
-git status                              show which files will be commited
-git push origin master [--force]        send the commits to remote, force if necessary
-git config --global user.name           set user's name
-git config --global user.email "m@e.ch  set email
-git init                                initialize a repo
-git status                              shows the status obv.
-git add -u                              ensure that also delete files will be gone from remote/repo
-git clone https://...repo.git           clone git repo (files + .git/ + configuration) and start working
-git pull origin                         pull changes, made to origin after cloning, and merge 
-git --abbrev-commit --pretty=online     shows short commit numbers; one line per commit
+git remote show origin                  show info of remote with the alias `origin`
 git reset --hard                        reset index and work. tree; tracked files reverted to (last) <commit>
-git clean [-f, -n]                      -f delete untracked files. -n shows what will be deleted
+git rm --cached file.txt                remove file.txt from stage, but leave locally
+git rm -r --cached ./                   untrack all files in the dir
+git status                              show which files will be commited
+git status                              shows the status obv.
 
 CREATE A GITHUB REPO AND CLONE TO LOCAL MACHINE
 - create a repo 'some-project-name' on Github and initialize it (to use clone later on)

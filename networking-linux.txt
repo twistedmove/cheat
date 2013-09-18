@@ -1,0 +1,2 @@
+whatis route                    show / manupulate routing table
+route -n                        show routing table including the gateway
