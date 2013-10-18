@@ -1,8 +1,13 @@
 add persistent path             add it in etc/environment file
 apt-cache search aPack          search for package 'aPack' in the repos
+cat /etc/group | grep test      show who is in group test
+cat /etc/issue 			        which distro version is running
+chmod --reference 1.txt 2.txt   copy permission of file 1 to file 2
+chmod 600 file.txt              hide file from others
 chmod ug+rwx file.txt           give user and group write permission
 crontab -u john -l              view crontab entry for a specific user
 diff -qsw one.c two.c           compare files, ignore whitespace chars
+du -s ./* | sort -nr		    show dir and file sizes in curr dir
 echo $PATH                      print environment variable PATH
 echo $SHELL                     shows which shell you are using.
 env                             prints all current environment variables
@@ -10,6 +15,7 @@ etc/environment                 contains a list of persistent paths
 file                            determine file type. can detect symbolic links
 find ./ -name "test"            find files named 'test' in dir ./ 
 find ./ -regex '.*lol.*'        in dir ./ finds all files with string 'lol' in the file path
+fmt -1 file.txt         		put each word on one line
 free -m                         view available memory in megs or -g for gigs
 grep -ri "test" fileordir       search dir rec. for string test, show file names in the results
 ifconfig -a                     view all network interfaces with statuses
@@ -17,13 +23,19 @@ iftop -i wlan0                  monitor bandwidth in real time
 ll='ls -l'                      creates an alias for the command ls -l. can be put in .bashrc
 ln -s ~/1.txt ./logs.txt        create symbolic link file logs.txt that point it to real file 1.txt
 locate somefile.txt             quickly find file somefile.txt
+ls -1 | xargs md5sum            provide md5sum of all files in curr dir
 lshw                            list hardware
 mkdir /z; mount /dev/sdb1 /z    mount a file system to folder /z
 nethongs wlan0                  monitor bandwidth in real time per process
+nproc                           show number of processors (cores)
+ps -F -u user1                  show extended overview of running processes under user1, the PSR column tells which core it is
 ps -e | wc -l                   get total number of running processes
 ps -ef | grep -e foo -e UID     prints all processes foo but also the header since it contains UID
 rename -n 's/\sfoo//' *.csv     replace " foo" with "" from names of csv files. -n flag for no action
 rm `ls -t | head -1`            remove last modifed file
+gdb bin corefile                examine core dump file using the binary bin (run bt command to backtrace)
+scp me@host:~/1.txt ~/          copy a file from host to local home dir
+sdiff foo.txt bar.txt           show difference between two files                           
 sed -i 's/.\{4\}/& /' *.c       in all .c files currdir, after first four characters, insert space; save
 sed -i 's/u/z/g' path/*.c       replace u with z in all .c files in path/ and save (-i)
 su dima                         change user to dima
@@ -32,6 +44,7 @@ sudo apt-get remove <pckg>      removes package, leaves conffiles
 tar -cf ar.tar foo bar          create an archive with files foo and bar
 tar -tvf archive.tar            list all files in an archive verbosely
 tar -xf archive.tar             extract all files
+tr ':' '\n'                     translate all colons into new line chars
 uname -r                        print kernel release info
 wget www.me.com/f.zip           download file
 which                           returns the pathnames of the files

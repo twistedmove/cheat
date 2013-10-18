@@ -3,4 +3,7 @@ awk 'BEGIN { FS = "," } ; { print $2 }'
 awk '/gold/' coins.txt
 	print all lines that have word gold in it in coins.txt
 
+
+awk '{print NF}'        print number of fields
+
 	
