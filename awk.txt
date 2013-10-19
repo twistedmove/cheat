@@ -2,4 +2,7 @@ awk 'BEGIN { FS = "," } ; { print $2 }'
 	Sets field separator to comma and for each line prints second field
 awk '/gold/' 1.txt              print all lines with 'gold' in it
 
+
+awk '{print NF}'        print number of fields
+
 	
