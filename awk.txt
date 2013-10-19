@@ -1,6 +1,5 @@
 awk 'BEGIN { FS = "," } ; { print $2 }'
 	Sets field separator to comma and for each line prints second field
-awk '/gold/' coins.txt
-	print all lines that have word gold in it in coins.txt
+awk '/gold/' 1.txt              print all lines with 'gold' in it
 
 	

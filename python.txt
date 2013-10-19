@@ -1,7 +1,17 @@
-type(myvar)                     Show variable type
-int(somestring)                 convert to integer
-x.__class__.__name__            class of x returned as string
-range(x, y)                     produce a list from and including x to an including y-1
-os.path.isfile("d/1.c")         checks if file 1.c exists in directory d in the current dir
-time.sleep(x)                   pause execution for x seconds
+__init__.py                     marks dir as package. allows imports from any cwd
+print os.environ['HOME']        show HOME environment variable
+dir()                           returns names in current scope
 help("string")                  get help on class `sring`
+int(somestring)                 convert to integer
+os.getcwd                       get current working directory
+os.path.isfile("d/1.c")         checks if file 1.c exists in directory d in the current dir
+range(x, y)                     produce a list from and including x to an including y-1
+time.sleep(x)                   pause execution for x seconds
+type(myvar)                     Show variable type
+x.__class__.__name__            class of x returned as string
+
+
+PACKAGES AND MODULES
+Any Python file is a module, its name being the file's base name without the .py extension. A package is a collection of Python modules: while a module is a single Python file, a package is a directory of Python modules containing an additional __init__.py file, to distinguish a package from a directory that just happens to contain a bunch of Python scripts. Packages can be nested at any deep, providing that the corresponding directories contain their own __init__.py file.
+
+

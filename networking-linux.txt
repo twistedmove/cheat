@@ -1,2 +1,3 @@
-whatis route                    show / manupulate routing table
+whatis route                    show / manupulate kernel's routing table
 route -n                        show routing table including the gateway
+
