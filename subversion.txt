@@ -1,0 +1,48 @@
+BASE                                                    the latest revision in working copy, which was also latest in repo when checked out or updated
+COMMITED                                                the last revision of a file in which it changed. Not necessarily the current revision of the file
+HEAD                                                    the current revision in repo
+PREV                                                    the one before last revision of a file in which actually the file changed            
+branches                                                by convention (though optional), the name for a directory in repo where all the branches reside
+svn cat -r12 foo.c > foo.v12.c                          print to STDOUT (and redirect to another file) the 12th revision of foo.c
+svn checkout -r {2013-01-02}                            obtains working copy of the revision that was the latest one on 2013 Jan 2nd, 00:00:00
+svn checkout file:///~/repo ~/repo-working-copy         put a working copy of the repo into repo-working-copy dir
+svn cleanup                                             resolve any locks after making sure you inspected manually all conflicts
+svn commit --dry-run -m "testing"                       see what will be commited if you run svn commit
+svn commit -m "fixed a bug"                             commit all files recursively from current dir, with a commit message, and send the changes to repo
+svn copy file:///~/r/1 file:///~/r/2 -m "new brach"     create a new branch in ~/r/2 from ~/r/1 (which we assume is the trunk)
+svn copy foo.c bar.c                                    copy foo.c into bar.c
+svn copy ~/repo file:///~/repo/tags/version-1.0         from the working copy create a tag
+svn diff -r BASE:HEAD                                   shows all differences compared to latest revision in repo, since your last commit
+svn diff -r HEAD                                        compares working copy the latest revision in repo
+svn diff -r PREV:COMMITED readme.txt                    shows the last commited set of changes of readme.txt
+svn import ~/scripts file:///~/repo -m "1st commit"     import files from scripts dir into the repo and commit providing a commit message
+svn info | grep URL                                     See the URL of the repo
+svn list
+svn log -r HEAD                                         shows log message of last repo commit
+svn log -r {2013-01-01}:{2013-02-01}                    shows the log of all commits in January 2013
+svn merge -r 8:9 file:///~/r/trunk ~/r/branches/1       merge the changes from 8th to 9th revision residing in repo's trunk, into brach 1 in your working copy
+svn merge -r 9:8 file:///~/r/trunk                      in working copy undo the changes done from 8th to 9th commit
+svn move foo.c bar.c                                    rename foo.c into bar.c thereby keeping the ancestry
+svn resolved foo.c                                      bring foo.c out of conflict state (conflict most likely result of merging)
+svn switch file:///~/repo/branches/1                    switch working copy to branch 1 in repo, assuming your working copy was of trunk or any other branch
+svn update                                              update your working copy to reflect the current repo's state. no arguments means recurse down current dir
+svn update -r PREV foo.c                                rewinds the last change on foo.c
+svnadmin create ~/repo                                  creates new repo (of which you can get a working copy later)
+tag                                                     a branch that is supposed to be a static snapshot of repo. Should not be commited to by convention
+tags                                                    by convention (though optional), the name for a directory in repo where all tags reside
+trunk                                                   by convention (though optional), the name for a directory in repo where main development takes place
+
+SCENARIO 1
+You did couple commits in a branch and now you want them to merge into trunk:
+cd ~/repo/trunk
+svn update # to sync wc with repo
+svn merge -r 7:HEAD file:///~/repo/branches/my-branch
+svn commit -m "Merged my-branch changes into trunk"
+To find from which revision you actually branched out, run while in ~/repo/branches/my-branch:
+svn log --verbose --stop-on-copy
+ 
+SCENARIO 2
+In revision 808 you did a lot of changes to a lot of files and also deleted foo.c. Now you want to resurrect foo.c though keep
+all the changes done to other files in revision 808. The run:
+svn copy -r 808 file:///~/repo/trunk/foo.c ./foo.c
+
